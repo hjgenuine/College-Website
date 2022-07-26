@@ -1,3 +1,3 @@
 # College-Website
 
-College Portfolio website
+College Portfolio Website
