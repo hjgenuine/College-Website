@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+        body{
+            font-family: "Poppins";
+            background-color: black;
+            color: white;
+            user-select: none;
+            width: 100%;
+            margin: 0;
+        }
+        
+        body > div{
+            border-bottom: 4px solid grey;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: grey;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgb(255, 0, 0);
+            border-radius: 0.2rem;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgb(233, 0, 0);
+        }
+
+        h1{
+            font-size: 40px;
+        }
+        p{
+            font-size: 15px;
+            margin-top: -10px;
+        }
+        .btn{
+            font-size: 25px;
+        }
+        
+        .gray{
+            color: grey;
+        }
+
+        .lead{
+            font-size: 25px;
+        }
+
+        .redBtn {
+            background: transparent;
+            font-size: 0.95rem;
+            border: 2px solid white;
+            color: white;  
+            border: 0px;
+            border-radius: 0.2rem;
+            font-size: 1.1rem;
+            outline: none;
+            background-color: red;
+            font-family: poppins;
+            padding: 5px 15px;
+            cursor: pointer; 
+        }
+        .redBtn:hover {
+            background: white;
+            color: red;
+            cursor: pointer;
+        }
+        
+        ul{
+            list-style: none;
+        }
+
+        a{
+            text-decoration: none;
+        }
+
+        nav{
+            position: fixed;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            height: 55px;
+            box-sizing: border-box;
+            z-index: 1;
+            background: rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(3px);
+            -webkit-backdrop-filter: blur(3px);
+        }
+        nav ul{
+            width: 25%;
+            display: flex;
+            justify-content: space-between;
+        }
+        nav h2{
+            color: red;
+            font-size: 28px;
+        }
+        nav a{
+            color: white;
+        }
+        nav li a{
+            padding: 8px;
+            box-shadow: inset 0px 0px 0px black;
+            border-bottom: 0px solid red;
+            transition: all ease 0.2s;
+            border-radius: 0.2rem;
+        }
+        nav li a:hover{
+            box-shadow: inset 0px 0px 10px black;
+            border-bottom: 2px solid red;
+            transition: border-bottom ease 0.2s;
+        }
+
+        #header{
+            height: 600px;
+            display: flex;
+            align-items: center;
+            background-image: url("images/Test.jpg");
+            background-position: top;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            box-shadow: inset 600px 0 400px 0px black;
+        }
+        #content{
+            margin-top: 20px;
+            margin-left: 8%;
+            width: 35%;
+            line-height: 30px;
+        }
+
+        #skills{
+            height: 600px;
+            background-image: url("images/Coding.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: -300px;
+            background-attachment: fixed;
+            box-shadow: inset -800px 0 400px 0px black;
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            justify-content: flex-end;
+        }
+        #details{
+            margin-right: 8%;
+            width: 35%;
+            line-height: 30px;
+        }
+
+        .skillContainer{
+            width: 100%;
+            height: 10px;
+            background-color: grey;
+            border-radius: 0.2rem;
+        }
+        #python{
+            background-color: red;
+            height: 100%;
+            width: 80%;
+            border-radius: 0.2rem;
+        }
+        #cpp{
+            background-color: red;
+            height: 100%;
+            width: 40%;
+            border-radius: 0.2rem;
+        }
+        #ml{
+            background-color: red;
+            height: 100%;
+            width: 70%;
+            border-radius: 0.2rem;
+        }
+        #wd{
+            background-color: red;
+            height: 100%;
+            width: 60%;
+            border-radius: 0.2rem;
+        }
+
+        #projects{
+            box-sizing: border-box;
+            height: 650px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: black;
+            padding-bottom: 50px;
+        }
+        .projects-box{
+            width: 270px;
+            display: flex;
+            margin: 20px;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+            flex-wrap: wrap;
+            background-color: rgb(20, 20, 20);
+            border: 2px solid #2b2b2b;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all ease 0.2s;
+            transform: translateY(0px);
+        }
+        .projects-box .genres{
+            color: rgb(77, 77, 77);
+        }
+        .projects-img{
+            width:100%;
+            height: 300px;
+            position: relative;
+        }
+        .projects-img img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .projects-box a{
+            color: white;
+            padding: 8px;
+        }
+        .projects-box:hover{
+            transform: translateY(-10px);
+            transition: all ease 0.2s;
+        }
+        #projects-list{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .quality{
+            position: absolute;
+            top: 0px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #ffffff;
+            padding: 5px 20px;
+            font-weight: 500;
+            border-radius: 0px 0px 10px 10px;
+            box-shadow: 5px 10px 30px rgba(0,0,0,0.4);
+        }
+
+        #footer{
+            height: 600px;
+            position: relative;
+        }
+        #footerImage{
+            height: 100%;
+            width: 100%;
+            background-image: url("images/Footer.png");
+            background-position: top;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        #text1, #text2{
+            background-color: black;
+            position: absolute;
+            top: 50%;
+            z-index: -1;
+            font-size: 40px;
+            border: 2px solid #fff;
+            border-radius: 0.2rem;
+            box-shadow: 0 0 .2rem #fff,
+            0 0 .2rem #fff,
+            0 0 2rem #fe1313,
+            0 0 0.8rem #fe1313,
+            0 0 2.8rem #fe1313,
+            inset 0 0 1.3rem #fe1313;
+            color: #fff;
+            text-shadow:
+                0 0 1px #fff,
+                0 0 2px #fff,
+                0 0 4px #fff,
+                0 0 6px #fe1313,
+                0 0 20px #fe1313,
+                0 0 25px #fe1313,
+                0 0 30px #fe1313,
+                0 0 30px #fe1313;
+        }
+        #text1{
+            left: 50%;
+        }
+        #text2{
+            right: 38%;
+        }
+
+        #contact{
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-direction: row;
+            padding-top: 20px;
+            box-sizing: border-box;
+        }
+        #contactForm{
+            margin-left: 8%;
+            width: 40%;
+        }
+        #contactForm input, textarea{
+            font-family: poppins;
+            outline: none;
+            background: transparent;
+            border: 1px solid grey;
+            color: white;
+            font-size: 16px;
+            padding: 10px 15px;
+            border-radius: 0.2rem;
+            box-sizing: border-box;
+        }
+        #contactForm .inputContainer{
+            width: 100%;
+        }
+        #contactForm input{
+            width: 45%;
+            margin: 5px;
+        }
+        #contactForm .wrapper {
+            margin: 5px;
+        }
+        #contactForm textarea {
+            width: 95%;
+        }
+        #contactDetails{
+            margin-top: -30px;
+            margin-right: 8%;
+            width: 35%;
+            line-height: 22px;
+        }
+        #address{
+            background: transparent;
+            border: 2px solid white;
+            color: white;  
+            border: 0px;
+            border-radius: 0.2rem;
+            font-size: 1rem;
+            outline: none;
+            background-color: red;
+            font-family: poppins;
+            padding: 2px 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <a href=""><h2>Portfolio</h2></a>
+        <ul>
+            <li><a href="#header">Home</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#footer">TBD</a></li>
+        </ul>
+        <a href="#contact"><button class="redBtn" style="font-size: 1rem">Contact</button></a>
+    </nav>
+
+    <div id="header">
+        <div id="content">
+            <h1>Himanshu Jaswal</h1>
+            <br>
+            <p class="gray">-> Introduction</p>
+            <p class="lead">Web Developer and Python Coder, based in India.</h2>
+            <br><br>
+            <p class="gray">Darkness cannot drive out darkness, only light can do that.</p>
+            <button class="redBtn">Download CV</button>
+        </div>
+    </div>
+
+    <div id="skills">
+        <div id="details">
+            <h1>Life Struggles</h1>
+            <p class="gray">-> Skills</p>
+            <p>Python</p>
+            <div class="skillContainer"><div id="python"></div></div><br>
+            <p>C++</p>
+            <div class="skillContainer"><div id="cpp"></div></div><br>
+            <p>Machine Learning</p>
+            <div class="skillContainer"><div id="ml"></div></div><br>
+            <p>Web Development</p>
+            <div class="skillContainer"><div id="wd"></div></div>
+        </div>
+    </div>
+
+    <div id="projects">
+        <div id="projectContainer">
+            <h1 style="text-align: center;">Projects</h1>
+            <section id="projects-list">
+                <div class="projects-box">
+                    <div class="projects-img">
+                        <button class="quality redBtn">HTML</button>
+                        <img src="images/Project.jpg">
+                    </div>
+                    <a href="#">
+                        Project Title <br> <span class="genres">Description</span>
+                    </a>
+                </div>
+                <div class="projects-box">
+                    <div class="projects-img">
+                        <button class="quality redBtn">HTML</button>
+                        <img src="images/Project.jpg">
+                    </div>
+                    <a href="#">
+                        Project Title <br> <span class="genres">Description</span>
+                    </a>
+                </div>
+                <div class="projects-box">
+                    <div class="projects-img">
+                        <button class="quality redBtn">HTML</button>
+                        <img src="images/Project.jpg">
+                    </div>
+                    <a href="#">
+                        Project Title <br> <span class="genres">Description</span>
+                    </a>
+                </div>
+                <div class="projects-box">
+                    <div class="projects-img">
+                        <button class="quality redBtn">HTML</button>
+                        <img src="images/Project.jpg">
+                    </div>
+                    <a href="#">
+                        Project Title <br> <span class="genres">Description</span>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <div id="footer">
+        <div id="footerImage"></div>
+        <button class="redBtn" id="text1">TO BE</button>
+        <button class="redBtn" id="text2">CONTINUED</button>
+    </div>
+
+    <div id="contact">
+        <div id="contactForm">
+            <div class="inputContainer">
+                <input type="email" name="" id="" placeholder="Enter email">
+                <input type="text" placeholder="Enter name">
+            </div>
+            <div class="inputContainer">
+                <input type="text" placeholder="Enter address">
+                <input type="text" placeholder="Enter phone number">
+            </div>
+            <div class="wrapper">
+                <textarea name="" id="" rows="5" placeholder="Enter message"></textarea>
+            </div>
+            <button class="redBtn" style="margin: 5px;">Submit</button>
+        </div>
+        <div id="contactDetails">
+            <h1>Contact Me</h1><br>
+            <p class="gray">-> I would love to hear from you!</p>
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque beatae velit aut animi a odit ullam minima excepturi incidunt eius perspiciatis, vitae ex fuga laudantium repellat illum iusto sint magni?
+            </p><br>
+            <button id="address">Address</button><br><br>
+            <p class="my-details-info-container">
+                <i class="fas fa-map-marker-alt"></i>&nbsp;
+                <span>Delhi, India</span>
+            </p>
+            <p class="my-details-info-container">
+                <i class="fas fa-mobile-alt"></i>&nbsp;
+                <span>9999999999</span>
+            </p>
+            <p class="my-details-info-container">
+                <i class="far fa-envelope"></i>&nbsp;
+                <span>myemail@gmail.com</span>
+            </p>
+        </div>
+    </div>
+
+
+<script>
+    window.onscroll = function() {myFunction()};
+
+    var footer = document.getElementById("footer");
+    var animationDone = false;
+
+    function myFunction() {
+        var coords =  footer.getBoundingClientRect();
+        if(!animationDone && (coords.top + 100) <= window.innerHeight){
+            doAnimation();
+            animationDone = true;
+        }
+        else if(animationDone && (coords.top + 100) > window.innerHeight){
+            revertAnimation();
+            animationDone = false;
+        }
+    }
+
+    function doAnimation(){
+        var text1 = document.getElementById("text1");
+        text1.style.transition = "left 0.5s ease 0.1s";
+        text1.style.left = "80px";
+
+        var text2 = document.getElementById("text2");
+        text2.style.transition = "right 0.5s ease 0.1s";
+        text2.style.right = "80px";
+    }
+
+    function revertAnimation(){
+        var text1 = document.getElementById("text1");
+        text1.style.transition = "left 0.5s ease";
+        text1.style.left = "50%";
+
+        var text2 = document.getElementById("text2");
+        text2.style.transition = "right 0.5s ease";
+        text2.style.right = "38%";
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+</script>
+
+</body>
+</html>
